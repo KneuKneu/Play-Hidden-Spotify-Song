@@ -63,13 +63,13 @@
       opacity: 0; /* Hide metadata */
     }
 
-    /* Overlay for hiding metadata */
+    /* Smaller overlay for hiding metadata but leaving the play button clickable */
     .overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 60%;
       background: rgba(255, 255, 255, 0.7);
       display: flex;
       align-items: center;
@@ -114,7 +114,7 @@
 
     <div class="player-container">
       <iframe id="spotify-iframe" src="" allowfullscreen allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <!-- Overlay to hide metadata -->
+      <!-- Smaller overlay to hide metadata -->
       <div class="overlay">🎵 Guess the Song! 🎶</div>
     </div>
 
