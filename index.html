@@ -4,19 +4,120 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guess the Song</title>
+  <style>
+    /* Reset some basic styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      height: 100%;
+      background-color: #f4f4f9;
+    }
+
+    /* Container for the main content */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Title styles */
+    h1 {
+      font-size: 3rem;
+      color: #4CAF50;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    /* Game instructions */
+    .instructions {
+      font-size: 1.2rem;
+      color: #333;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    /* Styling the iframe player */
+    .player-container {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      height: 80px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Overlay for the title inside the iframe */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Button styles */
+    .btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-  <div style="position: relative; width: 100%; height: 80px; overflow: hidden;">
-    <iframe id="spotify-iframe"
-      src=""
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-      allowfullscreen 
-      allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture;">
-    </iframe>
-    <!-- Overlay to hide metadata -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: white; clip-path: inset(0 40px 0 0); display: flex; align-items: center; justify-content: center; pointer-events: none;">
-      <span style="font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; color: #333;">🎵 Guess the Song! 🎶</span>
+  <div class="container">
+    <h1>🎵 Guess the Song! 🎶</h1>
+    <div class="instructions">
+      <p>Welcome to "Guess the Song!" The rules are simple:</p>
+      <ul>
+        <li>Listen to the song playing in the embedded Spotify player.</li>
+        <li>Try to guess the song title from the music!</li>
+        <li>Once you think you know it, submit your guess below!</li>
+      </ul>
+      <p>Good luck and have fun! 😎</p>
     </div>
+
+    <div class="player-container">
+      <iframe id="spotify-iframe" src="" allowfullscreen allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <!-- Overlay with the game title -->
+      <div class="overlay">🎵 Guess the Song! 🎶</div>
+    </div>
+
+    <button class="btn">Submit Your Guess</button>
   </div>
 
   <script>
