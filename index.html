@@ -41,7 +41,7 @@
       margin-bottom: 30px;
     }
 
-    /* Styling the iframe player */
+    /* Styling the iframe player container */
     .player-container {
       position: relative;
       width: 100%;
@@ -60,9 +60,10 @@
       width: 100%;
       height: 100%;
       border: 0;
+      opacity: 0; /* Hide metadata */
     }
 
-    /* Overlay for the title inside the iframe */
+    /* Overlay for hiding metadata */
     .overlay {
       position: absolute;
       top: 0;
@@ -113,7 +114,7 @@
 
     <div class="player-container">
       <iframe id="spotify-iframe" src="" allowfullscreen allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <!-- Overlay with the game title -->
+      <!-- Overlay to hide metadata -->
       <div class="overlay">🎵 Guess the Song! 🎶</div>
     </div>
 
